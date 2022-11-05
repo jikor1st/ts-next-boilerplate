@@ -7,9 +7,9 @@ interface IExample {
   name: string;
 }
 
-const fetchExample = async (): Promise<IExample> => {
+const fetchExample = async () => {
   try {
-    const response = await axiosController('api/hello');
+    const response = await axiosController.get<IExample>('api/hello');
     return response.data;
   } catch (error) {
     console.error(error);
